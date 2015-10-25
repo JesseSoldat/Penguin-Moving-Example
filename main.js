@@ -124,7 +124,7 @@ $start.on('click', function(){ // User clicks to start the game
   
 // take away health
 $pen.on('click', function(){  // When user clicks on the Penguin
-  console.log('clicked');
+  // console.log('clicked');
   penguin.hit(); // A function in the Penguin Object that subtracts a number from 100 (Penguin's total health)
   // console.log(penguin.health);
 })
@@ -139,6 +139,13 @@ box.click(function(e){
 
     // console.log("Penguin Horizontal: " + pX);
     // console.log("Penguin Vertical : " + pY);
+    // Get the current Penguin's Position
+   var $position = $pen.position(); //Gives the current position of its PARENT 
+  // console.log($position);
+  var pY = $position.top; //Give the current TOP position of its PARENT
+  // console.log('Top: '+ pY);
+  var pX = $position.left; //Give the current LEFT position of its PARENT
+  // console.log('Left: '+ pX);
 
     // Get the Penguin's Left and Right Borders
     var penguinLeft = pX + 15;
@@ -154,10 +161,6 @@ box.click(function(e){
     if (mouseX > penguinLeft && mouseX < penguinRight && mouseY < penguinTop && mouseY > penguinBottom){
       console.log("You clicked ME!");
     }
-    
-  
-
-
 
 });
 
