@@ -1,0 +1,31 @@
+*
+{
+  padding: 0;
+  margin: 0;
+}
+
+html, body
+{
+  display: block;
+  height: 100%;
+}
+
+body
+{
+  font: normal 200%/1.3em sans-serif; 
+  color: #333;
+  background-color: #fff;
+}
+
+
+
+#ball
+{
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  top: 50%;
+  background-color: #f00;
+  border-radius: 40px;
+}
