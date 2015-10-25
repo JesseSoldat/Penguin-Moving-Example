@@ -19,7 +19,7 @@ var box = $('#box');
 var $pen = $('#penguin');
 var $start = $('#start');
 var boxWidth = $(box).width();  // Horizontal Box 1000
-var penRightBorder = boxWidth - 75;  //Penguin Right Border 926
+var penRightBorder = boxWidth - 75;  //Penguin Right Border 925
 // console.log(penRightBorder);
 var penLeftBorder = 0;  //Penguin Left Border
 
@@ -67,7 +67,7 @@ function animateRight(){  //Move Right
     var pX = $position.left;  
     console.log('Left: '+ pX);
 
-      if((pY >= 368) || (pX >= penRightBorder)){ // If the penguins Left Position is greater than or equal to 926 do the following
+      if((pY >= 368) || (pX >= penRightBorder)){ // If the penguins Left Position is greater than or equal to 925 do the following
       reverse('left'); // Call the reverse function with a parameter of left
       console.log('I have returned'); // After reverse function RETURNS    
       latDirection = 'left'; // Set Penguins direction to LEFT so that the next time animatePenguin() is called the Penguin will use the animateLeft()  
@@ -132,14 +132,29 @@ $pen.on('click', function(){  // When user clicks on the Penguin
 
 // Checks the Position where the user CLICKED in the BOX 
 box.click(function(e){
-    var mouseX = e.pageX - this.offsetLeft; // HORIZONTAL POSITION
-    console.log("Mouse Horizontal: " + mouseX);
-    var mouseY = e.pageY - this.offsetTop; // VERTICAL POSITION 
-    console.log("Mouse Vertical: " + mouseY);
+    var mouseX = e.pageX - this.offsetLeft; // HORIZONTAL POSITION of this (what was clicked on)
+    // console.log("Mouse Horizontal: " + mouseX);
+    var mouseY = e.pageY - this.offsetTop; // VERTICAL POSITION of this (what was clicked on)
+    // console.log("Mouse Vertical: " + mouseY);
 
-    console.log("Penguin Horizontal: " + pX);
-    console.log("Penguin Vertical : " + pY);
+    // console.log("Penguin Horizontal: " + pX);
+    // console.log("Penguin Vertical : " + pY);
 
+    // Get the Penguin's Left and Right Borders
+    var penguinLeft = pX + 15;
+    var penguinRight = pX + 75;
+    // console.log("Right Border: " + penguinRight);
+    // console.log("Left Border: " + penguinLeft);
+    // Get the Penguin's Top and Bottom Borders
+    var penguinTop =  pY + 90; //BOTTOM
+    var penguinBottom = pY - 0; //TOP
+    // console.log("Top Border: " + penguinTop);
+    // console.log("Bottom Border: " + penguinBottom);
+    // Check to see if the user clicked within the Penguin's Left and Right borders
+    if (mouseX > penguinLeft && mouseX < penguinRight && mouseY < penguinTop && mouseY > penguinBottom){
+      console.log("You clicked ME!");
+    }
+    
   
 
 
